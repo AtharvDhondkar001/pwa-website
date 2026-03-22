@@ -3,81 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My PWA App</title>
-    
-    <!-- PWA Meta Tags -->
-    <meta name="theme-color" content="#667eea">
+    <title>PWA Todo App</title>
+    <meta name="theme-color" content="#4F46E5">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="apple-mobile-web-app-title" content="My PWA">
-    
-    <!-- PWA Links -->
-    <link rel="manifest" href="manifest.json">
-    <link rel="apple-touch-icon" href="icon.png">
-    
-    <!-- Styles -->
-    <link rel="stylesheet" href="style.css">
+    <meta name="apple-mobile-web-app-title" content="PWA Todo">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/icon-192.png">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,-apple-system,sans-serif}
+        body{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);min-height:100vh;padding:20px;color:#333}
+        .app{max-width:400px;margin:0 auto;background:white;border-radius:24px;overflow:hidden;box-shadow:0 25px 50px rgba(0,0,0,0.25)}
+        .header{background:linear-gradient(135deg,#4F46E5,#7C3AED);color:white;padding:30px 20px;text-align:center}
+        .header h1{font-size:1.8rem;margin-bottom:5px}
+        .install-banner{background:#10B981;color:white;padding:15px 20px;text-align:center;font-weight:600}
+        .install-btn{background:#059669;color:white;border:none;padding:12px 24px;border-radius:50px;font-size:16px;font-weight:600;cursor:pointer;width:100%;margin-top:10px;transition:all .3s}
+        .install-btn:hover{background:#047857;transform:translateY(-2px)}
+        .content{padding:30px 20px}
+        .stats{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:30px}
+        .stat{background:#F8FAFC;padding:20px;border-radius:16px;text-align:center}
+        .stat-value{font-size:1.8rem;font-weight:bold;color:#4F46E5;margin-bottom:5px}
+        .stat-label{font-size:14px;color:#64748B}
+        .todo-input{display:flex;gap:10px;margin-bottom:20px}
+        .todo-input input{flex:1;padding:15px;border:2px solid #E2E8F0;border-radius:12px;font-size:16px}
+        .todo-input button{background:#4F46E5;color:white;border:none;padding:15px 20px;border-radius:12px;font-size:16px;cursor:pointer}
+        .todos{max-height:300px;overflow-y:auto}
+        .todo{background:#F8FAFC;padding:15px;margin-bottom:10px;border-radius:12px;display:flex;align-items:center;gap:12px}
+        .todo.completed{text-decoration:line-through;opacity:0.6}
+        .todo-text{flex:1}
+        .todo button{background:#EF4444;color:white;border:none;border-radius:8px;padding:8px 12px;cursor:pointer;font-size:14px}
+        .offline .stat-value{color:#EF4444!important}
+    </style>
 </head>
 <body>
-    <div class="app-container">
-        <!-- Header -->
-        <header class="header">
-            <div class="header-content">
-                <img src="icon.png" alt="App Icon" class="app-icon">
-                <h1>My PWA App</h1>
-                <p>Install me on your home screen! 🚀</p>
-            </div>
-        </header>
-
-        <!-- Install Prompt -->
-        <div id="install-prompt" class="install-banner" style="display: none;">
-            <p>📱 Install this app on your home screen!</p>
-            <button id="install-btn">Install App</button>
-            <button id="dismiss-btn">✕</button>
+    <div class="app">
+        <div class="header">
+            <h1>📱 PWA Todo</h1>
+            <p>Install on Home Screen</p>
         </div>
-
-        <!-- Main Content -->
-        <main class="main-content">
-            <div class="card">
-                <h2>✨ Welcome to PWA!</h2>
-                <p>This is a fully functional Progressive Web App that works offline and can be installed like a native app.</p>
-            </div>
-
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-number" id="visitCount">1</div>
-                    <div class="stat-label">Visits</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number" id="offlineStatus">Online</div>
-                    <div class="stat-label">Status</div>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3>📝 Quick Notes</h3>
-                <textarea id="notes" placeholder="Your notes will be saved offline..."></textarea>
-                <button id="saveNotes">Save Notes</button>
-            </div>
-
-            <div class="card">
-                <h3>🔋 PWA Features</h3>
-                <ul>
-                    <li>✅ Installable on Home Screen</li>
-                    <li>✅ Works Offline</li>
-                    <li>✅ Fast Loading</li>
-                    <li>✅ Push Notifications Ready</li>
-                    <li>✅ Native App Feel</li>
-                </ul>
-            </div>
-        </main>
-
-        <!-- Footer -->
-        <footer class="footer">
-            <p>&copy; 2024 My PWA App. Made with ❤️ for PWAs</p>
-        </footer>
-    </div>
-
-    <script src="app.js"></script>
-</body>
-</html>
+        
+        <div id="install-banner" class="install-banner" style="display:none">
+            🚀 App Ready! Install Now
+            <br>
+            <button id="install-btn" class="install-btn">Install
