@@ -3,8 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todo PWA</title>
-    <meta name="theme-color" content="#10b981">
+    <title>My PWA App</title>
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#667eea">
     <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="My PWA">
+    
+    <!-- PWA Links -->
     <link rel="manifest" href="manifest.json">
-    <style>body{margin:0;padding:20px;min-height:
+    <link rel="apple-touch-icon" href="icon.png">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <img src="icon.png" alt="App Icon" class="app-icon">
+                <h1>My PWA App</h1>
+                <p>Install me on your home screen! 🚀</p>
+            </div>
+        </header>
+
+        <!-- Install Prompt -->
+        <div id="install-prompt" class="install-banner" style="display: none;">
+            <p>📱 Install this app on your home screen!</p>
+            <button id="install-btn">Install App</button>
+            <button id="dismiss-btn">✕</button>
+        </div>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="card">
+                <h2>✨ Welcome to PWA!</h2>
+                <p>This is a fully functional Progressive Web App that works offline and can be installed like a native app.</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" id="visitCount">1</div>
+                    <div class="stat-label">Visits</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="offlineStatus">Online</div>
+                    <div class="stat-label">Status</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>📝 Quick Notes</h3>
+                <textarea id="notes" placeholder="Your notes will be saved offline..."></textarea>
+                <button id="saveNotes">Save Notes</button>
+            </div>
+
+            <div class="card">
+                <h3>🔋 PWA Features</h3>
+                <ul>
+                    <li>✅ Installable on Home Screen</li>
+                    <li>✅ Works Offline</li>
+                    <li>✅ Fast Loading</li>
+                    <li>✅ Push Notifications Ready</li>
+                    <li>✅ Native App Feel</li>
+                </ul>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2024 My PWA App. Made with ❤️ for PWAs</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
